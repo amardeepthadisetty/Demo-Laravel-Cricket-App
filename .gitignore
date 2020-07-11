@@ -2,7 +2,7 @@
 /public/hot
 /public/storage
 public/uploads/user_uploaded_images/new/*
-/storage/*.key
+/storage/framework/sessions/
 /vendor
 .env
 .env.backup
