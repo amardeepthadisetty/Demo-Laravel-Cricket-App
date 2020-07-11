@@ -1,0 +1,44 @@
+
+/* Login Start */
+.input-group-addon {
+    color: #555;
+    background-color: #FFF;
+
+    -webkit-transition: background-color 0.2s linear;
+    -ms-transition: background-color 0.2s linear;
+    transition: background-color 0.2s linear;
+    padding: 0.7rem 0.875rem;
+
+    border: 1px solid #ccc;
+    border-left: 0;
+  }
+
+.input-group-addon > i {
+    font-size: 1.2rem;
+    line-height: 1.4; opacity: 0.6;
+  }
+  .login-style input {
+    padding: .8rem;
+}
+
+
+
+  .btn-icon--2 {
+    position: relative;
+    padding-left: 40px !important;
+  }
+  
+  .btn-icon--2 .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+
+/* Login End */

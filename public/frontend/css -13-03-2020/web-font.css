@@ -1,0 +1,14 @@
+
+@font-face {
+  font-family: 'Grava-Normal';
+  src: url('../fonts/web-fonts/Grava-Normal.eot?#iefix') format('embedded-opentype'),  
+       url('../fonts/web-fonts/Grava-Normal.otf')  format('opentype'),
+       url('../fonts/web-fonts/Grava-Normal.woff') format('woff'), 
+       url('../fonts/web-fonts/Grava-Normal.ttf')  format('truetype'), 
+       url('../fonts/web-fonts/Grava-Normal.svg#Grava-Normal') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
