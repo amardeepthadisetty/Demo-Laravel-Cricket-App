@@ -29,7 +29,7 @@
                     <div class="form-group">
                         <label class="col-lg-3 control-label" for="name">{{__('Jersey Number')}}</label>
                         <div class="col-lg-5">
-                            <input class="form-control" required type="text" name="jersey_number" value="{{ $player_data->jersey_number }}">
+                            <input class="form-control" readonly="true" type="text" name="jersey_number" value="{{ $player_data->jersey_number }}">
                         </div>
                     </div>
 
@@ -43,13 +43,24 @@
 
                      <div class="form-group">
                         <label class="col-lg-3 control-label" for="name">{{__('Country')}}</label>
+                        @php 
+                        $country = array(
+                        'IND' => 'INDIA',
+                        'PAK' => 'PAKISTAN',
+                        'ENG' => 'ENGLAND',
+                        'AUS' => 'AUSTRALIA',
+                        );
+                        @endphp
                         <div class="col-lg-5">
                             <select required class="form-control" name="country">
                                 <option> Select country</option>
-                                <option value="IND">INDIA</option>
+                                @foreach($country as $c => $value)
+                                    <option value="{{ $c }}" @if($player_data->country===$c) selected  @endif> {{ $value }} </option>
+                                @endforeach
+                                <!-- <option value="IND">INDIA</option>
                                 <option value="PAK">PAKISTAN</option>
                                 <option value="ENG">ENGLAND</option>
-                                <option value="AUS">AUSTRALIA</option>
+                                <option value="AUS">AUSTRALIA</option> -->
                             </select>
                         </div>
                     </div>
@@ -59,35 +70,35 @@
                     <div class="form-group">
                         <label class="col-lg-3 control-label" for="name">{{__('Matches')}}</label>
                         <div class="col-lg-5">
-                            <input class="form-control" required type="text" name="matches" value="{{ $player_data->matches }}">
+                            <input class="form-control"  type="text" name="matches" value="{{ $player_data->matches }}">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-lg-3 control-label" for="name">{{__('Runs')}}</label>
                         <div class="col-lg-5">
-                            <input class="form-control" required type="text" name="runs" value="{{ $player_data->runs }}">
+                            <input class="form-control"  type="text" name="runs" value="{{ $player_data->runs }}">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-lg-3 control-label" for="name">{{__('Highest Score')}}</label>
                         <div class="col-lg-5">
-                            <input class="form-control" required type="text" name="highest_score" value="{{ $player_data->highest_score }}">
+                            <input class="form-control"  type="text" name="highest_score" value="{{ $player_data->highest_score }}">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-lg-3 control-label" for="name">{{__('50s')}}</label>
                         <div class="col-lg-5">
-                            <input class="form-control" required type="text" name="fifties" value="{{ $player_data->fifties }}">
+                            <input class="form-control"  type="text" name="fifties" value="{{ $player_data->fifties }}">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-lg-3 control-label" for="name">{{__('Hundreds')}}</label>
                         <div class="col-lg-5">
-                            <input class="form-control" required type="text" name="hundreds" value="{{ $player_data->hundreds }}">
+                            <input class="form-control"  type="text" name="hundreds" value="{{ $player_data->hundreds }}">
                         </div>
                     </div>
 

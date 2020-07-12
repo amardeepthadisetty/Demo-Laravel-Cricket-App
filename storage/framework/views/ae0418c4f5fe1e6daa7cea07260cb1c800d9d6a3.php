@@ -27,6 +27,30 @@
                     </div>
 
 
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label" for="name"><?php echo e(__('Players')); ?></label>
+                        <div class="col-lg-5">
+                            <select name="players[]" class="form-control players" multiple="">
+                                <option>Select players</option>
+                                <?php $__currentLoopData = $all_players; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $p): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($p->id); ?>"
+                                        <?php 
+                                        foreach ($mappedPlayers as $mP){
+                                            if($mP->player_id===$p->id){
+                                                echo 'selected';
+                                            }
+                                        }
+
+                                        ?>
+
+                                        > <?php echo e($p->first_name.'->'.$p->jersey_number); ?> </option>
+                                        
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </select>
+                        </div>
+                    </div>
+
+
 
                    
                 <div class="panel-footer text-right">
@@ -43,7 +67,7 @@
 
 <script type="text/javascript">
 
-   
+   $('.players').select2();
 
 
 </script>

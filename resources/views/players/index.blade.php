@@ -39,7 +39,15 @@
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-right">
                                         <li><a href="{{route('players.edit', encrypt($player->id))}}">{{__('Edit')}}</a></li>
-                                        <li><a onclick="confirm_modal('{{route('players.destroy', $player->id)}}');">{{__('Delete')}}</a></li>
+                                        <li>
+
+                                            <form action="{{ route('players.destroy',$player->id) }}" method="POST">
+                   
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </form>
+                                        </li>
                                     </ul>
                                 </div>
                             </td>

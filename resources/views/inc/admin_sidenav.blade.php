@@ -101,6 +101,13 @@
                                     <i class="fa fa-home"></i>
                                     <span class="menu-title">{{__('Players')}}</span>
                                 </a>
+                            </li> 
+
+                              <li class="active">
+                                <a class="nav-link" href="{{route('fixtures.index')}}">
+                                    <i class="fa fa-home"></i>
+                                    <span class="menu-title">{{__('Fixtures')}}</span>
+                                </a>
                             </li>  
 
 

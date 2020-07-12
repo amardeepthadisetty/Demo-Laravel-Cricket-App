@@ -69,6 +69,13 @@
                                     <i class="fa fa-home"></i>
                                     <span class="menu-title"><?php echo e(__('Players')); ?></span>
                                 </a>
+                            </li> 
+
+                              <li class="active">
+                                <a class="nav-link" href="<?php echo e(route('fixtures.index')); ?>">
+                                    <i class="fa fa-home"></i>
+                                    <span class="menu-title"><?php echo e(__('Fixtures')); ?></span>
+                                </a>
                             </li>  
 
 

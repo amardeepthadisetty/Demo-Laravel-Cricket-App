@@ -106,22 +106,30 @@ class PlayerController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $teams_data = Players::findOrFail($id);
-      $teams_data->name = $request->team_name;
-        if($request->hasFile('logo_uri')){
+      $player_data = Players::findOrFail($id);
+      $player_data->first_name = $request->first_name;
+      $player_data->last_name = $request->last_name;
+      $player_data->jersey_number = $request->jersey_number;
+      $player_data->country = $request->country;
+      $player_data->matches = $request->matches;
+      $player_data->runs = $request->runs;
+      $player_data->highest_score = $request->highest_score;
+      $player_data->fifties = $request->fifties;
+      $player_data->hundreds = $request->hundreds;
+        if($request->hasFile('image_uri')){
 
-            $imageName = getOnlyImageName($request->logo_uri->getClientOriginalName()).'.'.$request->logo_uri->extension();
+            $imageName = getOnlyImageName($request->image_uri->getClientOriginalName()).'.'.$request->image_uri->extension();
             
 
-            $imagefolderpath = 'uploads/teams/'.$imageName  ;
-            $request->logo_uri->move(public_path('uploads\teams'), $imageName);
+            $imagefolderpath = 'uploads/players/'.$imageName  ;
+            $request->image_uri->move(public_path('uploads\players'), $imageName);
             //$product->thumbnail_img = $request->thumbnail_img->store('uploads/products/thumbnail');
 
-            $teams_data->logo_uri = $imagefolderpath;
+            $player_data->image_uri = $imagefolderpath;
 
         }
-        $teams_data->update();
-        Session::flash('success','Teams has been updated successfully');
+        $player_data->update();
+        Session::flash('success','Player data has been updated successfully');
         return redirect()->route('players.index');
         
     }
@@ -134,7 +142,7 @@ class PlayerController extends Controller
      */
     public function destroy($id)
     {
-      //echo "destroy";die;
+        //echo "destroy";die;
         $coupon = Players::findOrFail($id);
         if(Players::destroy($id)){
             //flash('Coupon has been deleted successfully')->success();

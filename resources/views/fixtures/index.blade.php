@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <a href="{{ route('teams.create')}}" class="btn btn-rounded btn-info pull-right">{{__('Add New Team')}}</a>
+            <a href="{{ route('fixtures.create')}}" class="btn btn-rounded btn-info pull-right">{{__('Add New Fixture')}}</a>
         </div>
     </div><br>
     <div class="panel">
@@ -16,26 +16,24 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>{{__('Team Name')}}</th>
-                        <th>{{__('Image')}}</th>
-                        <th>{{__('Status')}}</th>
+                        <th>{{__('Date')}}</th>
+                        <th>{{__('Fixture')}}</th>
+                        <th>{{__('Venue')}}</th>
                         <th width="10%">{{__('Options')}}</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($teams as $key => $team)
+                    @foreach($fixtures as $key => $fixture)
                         <tr>
                             <td>{{$key+1}}</td>
-                            <td>{{$team->name}}</td>
-                            <td><img width="100px" height="100px" src="{{asset($team->logo_uri)}}"></td>
+                            <td>{{$fixture->match_date}}</td>
+                            <td>
+                                {{
+                                    \App\Teams::where('id', $fixture->team_a)->first()->name.' Vs '.\App\Teams::where('id', $fixture->team_b)->first()->name }}
+                            </td>
                             <td>
                                 
-                                @if($team->club_state=="1")
-                                    Active
-                                @elseif($team->club_state=="0")
-                                    In active
-                                @endif
-
+                                {{ $fixture->venue }}
                             </td>
                             <td>
                                 <div class="btn-group dropdown">
@@ -43,17 +41,8 @@
                                         {{__('Actions')}} <i class="dropdown-caret"></i>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a href="{{route('teams.edit', encrypt($team->id))}}">{{__('Edit')}}</a></li>
-
-                                        <li>
-
-                                            <form action="{{ route('teams.destroy',$team->id) }}" method="POST">
-                   
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Delete</button>
-                                            </form>
-                                        </li>
+                                        <li><a href="{{route('fixtures.edit', encrypt($fixture->id))}}">{{__('Edit')}}</a></li>
+                                        <li><a onclick="confirm_modal('{{route('fixtures.destroy', $fixture->id)}}');">{{__('Delete')}}</a></li>
                                     </ul>
                                 </div>
                             </td>

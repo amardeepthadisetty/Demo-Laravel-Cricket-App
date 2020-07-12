@@ -37,7 +37,15 @@
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-right">
                                         <li><a href="<?php echo e(route('players.edit', encrypt($player->id))); ?>"><?php echo e(__('Edit')); ?></a></li>
-                                        <li><a onclick="confirm_modal('<?php echo e(route('players.destroy', $player->id)); ?>');"><?php echo e(__('Delete')); ?></a></li>
+                                        <li>
+
+                                            <form action="<?php echo e(route('players.destroy',$player->id)); ?>" method="POST">
+                   
+                                                <?php echo csrf_field(); ?>
+                                                <?php echo method_field('DELETE'); ?>
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </form>
+                                        </li>
                                     </ul>
                                 </div>
                             </td>

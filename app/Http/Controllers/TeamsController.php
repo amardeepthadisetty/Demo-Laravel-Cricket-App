@@ -7,6 +7,8 @@ use App\Category;
 use App\SubCategory;
 use App\SubSubCategory;
 use App\Teams;
+use App\Players;
+use App\TeamMappings;
 use Session;
 use Schema;
 
@@ -94,7 +96,9 @@ class TeamsController extends Controller
     public function edit($id)
     {
       $team_data = Teams::findOrFail(decrypt($id));
-      return view('Teams.edit', compact('team_data'));
+      $all_players = Players::all();
+      $mappedPlayers = TeamMappings::where('team_id', $team_data->id)->get();
+      return view('Teams.edit', compact('team_data','all_players','mappedPlayers'));
     }
 
     /**
@@ -120,6 +124,17 @@ class TeamsController extends Controller
             $teams_data->logo_uri = $imagefolderpath;
 
         }
+        TeamMappings::where('team_id', $id)->delete();
+       // echo "<pre>";
+        //print_r($request->players);
+        //$tm = new TeamMappings;
+        foreach ($request->players as $p) {
+            TeamMappings::create([
+                'team_id' => $id,
+                'player_id' => $p
+                ]);
+        }
+       // echo "<br> before update<br>";die;
         $teams_data->update();
         Session::flash('success','Teams has been updated successfully');
         return redirect()->route('teams.index');
@@ -134,11 +149,11 @@ class TeamsController extends Controller
      */
     public function destroy($id)
     {
-      echo "destroy";die;
+      //echo "destroy";die;
         $coupon = Teams::findOrFail($id);
         if(Teams::destroy($id)){
             //flash('Coupon has been deleted successfully')->success();
-            Session::flash('success','Location has been deleted successfully');
+            Session::flash('success','Team has been deleted successfully');
             return redirect()->route('teams.index');
         }
 

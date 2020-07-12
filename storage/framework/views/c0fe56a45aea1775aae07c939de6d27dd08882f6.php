@@ -27,7 +27,7 @@
                     <div class="form-group">
                         <label class="col-lg-3 control-label" for="name"><?php echo e(__('Jersey Number')); ?></label>
                         <div class="col-lg-5">
-                            <input class="form-control" required type="text" name="jersey_number" value="<?php echo e($player_data->jersey_number); ?>">
+                            <input class="form-control" readonly="true" type="text" name="jersey_number" value="<?php echo e($player_data->jersey_number); ?>">
                         </div>
                     </div>
 
@@ -41,13 +41,24 @@
 
                      <div class="form-group">
                         <label class="col-lg-3 control-label" for="name"><?php echo e(__('Country')); ?></label>
+                        <?php 
+                        $country = array(
+                        'IND' => 'INDIA',
+                        'PAK' => 'PAKISTAN',
+                        'ENG' => 'ENGLAND',
+                        'AUS' => 'AUSTRALIA',
+                        );
+                        ?>
                         <div class="col-lg-5">
                             <select required class="form-control" name="country">
                                 <option> Select country</option>
-                                <option value="IND">INDIA</option>
+                                <?php $__currentLoopData = $country; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $c => $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($c); ?>" <?php if($player_data->country===$c): ?> selected  <?php endif; ?>> <?php echo e($value); ?> </option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <!-- <option value="IND">INDIA</option>
                                 <option value="PAK">PAKISTAN</option>
                                 <option value="ENG">ENGLAND</option>
-                                <option value="AUS">AUSTRALIA</option>
+                                <option value="AUS">AUSTRALIA</option> -->
                             </select>
                         </div>
                     </div>
@@ -57,35 +68,35 @@
                     <div class="form-group">
                         <label class="col-lg-3 control-label" for="name"><?php echo e(__('Matches')); ?></label>
                         <div class="col-lg-5">
-                            <input class="form-control" required type="text" name="matches" value="<?php echo e($player_data->matches); ?>">
+                            <input class="form-control"  type="text" name="matches" value="<?php echo e($player_data->matches); ?>">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-lg-3 control-label" for="name"><?php echo e(__('Runs')); ?></label>
                         <div class="col-lg-5">
-                            <input class="form-control" required type="text" name="runs" value="<?php echo e($player_data->runs); ?>">
+                            <input class="form-control"  type="text" name="runs" value="<?php echo e($player_data->runs); ?>">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-lg-3 control-label" for="name"><?php echo e(__('Highest Score')); ?></label>
                         <div class="col-lg-5">
-                            <input class="form-control" required type="text" name="highest_score" value="<?php echo e($player_data->highest_score); ?>">
+                            <input class="form-control"  type="text" name="highest_score" value="<?php echo e($player_data->highest_score); ?>">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-lg-3 control-label" for="name"><?php echo e(__('50s')); ?></label>
                         <div class="col-lg-5">
-                            <input class="form-control" required type="text" name="fifties" value="<?php echo e($player_data->fifties); ?>">
+                            <input class="form-control"  type="text" name="fifties" value="<?php echo e($player_data->fifties); ?>">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-lg-3 control-label" for="name"><?php echo e(__('Hundreds')); ?></label>
                         <div class="col-lg-5">
-                            <input class="form-control" required type="text" name="hundreds" value="<?php echo e($player_data->hundreds); ?>">
+                            <input class="form-control"  type="text" name="hundreds" value="<?php echo e($player_data->hundreds); ?>">
                         </div>
                     </div>
 

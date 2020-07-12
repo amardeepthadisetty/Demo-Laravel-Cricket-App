@@ -29,6 +29,30 @@
                     </div>
 
 
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label" for="name">{{__('Players')}}</label>
+                        <div class="col-lg-5">
+                            <select name="players[]" class="form-control players" multiple="">
+                                <option>Select players</option>
+                                @foreach( $all_players as $p)
+                                    <option value="{{ $p->id }}"
+                                        @php 
+                                        foreach ($mappedPlayers as $mP){
+                                            if($mP->player_id===$p->id){
+                                                echo 'selected';
+                                            }
+                                        }
+
+                                        @endphp
+
+                                        > {{ $p->first_name.'->'.$p->jersey_number}} </option>
+                                        
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+
 
                    
                 <div class="panel-footer text-right">
@@ -45,7 +69,7 @@
 
 <script type="text/javascript">
 
-   
+   $('.players').select2();
 
 
 </script>
