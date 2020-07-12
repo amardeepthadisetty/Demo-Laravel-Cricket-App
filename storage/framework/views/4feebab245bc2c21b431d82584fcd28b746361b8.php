@@ -55,14 +55,17 @@
                     <ul id="mainnav-menu" class="list-group">
                           
 
-                             <li class="active">
-                                <a class="nav-link" href="<?php echo e(route('menu.admin')); ?>">
+                          
+
+                            <li class="active">
+                                <a class="nav-link" href="<?php echo e(route('teams.index')); ?>">
                                     <i class="fa fa-home"></i>
-                                    <span class="menu-title"><?php echo e(__('Menu')); ?></span>
+                                    <span class="menu-title"><?php echo e(__('Teams')); ?></span>
                                 </a>
                             </li> 
 
-                            <li class="active">
+
+                           <!--  <li class="active">
                                 <a class="nav-link" href="<?php echo e(route('products.admin')); ?>">
                                     <i class="fa fa-home"></i>
                                     <span class="menu-title"><?php echo e(__('Products')); ?></span>
@@ -134,14 +137,14 @@
                                     <i class="fa fa-home"></i>
                                     <span class="menu-title"><?php echo e(__('Global Shipping Settings')); ?></span>
                                 </a>
-                            </li> 
+                            </li>  
 
                             <li class="active">
                                 <a class="nav-link" href="<?php echo e(route('orders.index')); ?>">
                                     <i class="fa fa-home"></i>
                                     <span class="menu-title"><?php echo e(__('Orders')); ?></span>
                                 </a>
-                            </li>  
+                            </li>  -->
                        
                     </ul>
                 </div>

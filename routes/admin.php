@@ -3,7 +3,7 @@
 
 //Route::get('/admin','BookController@admin');
 
-Route::get('/admin', 'HomeController@admin_dashboard')->name('admin.dashboard')->middleware(['auth', 'admin']);
+//Route::get('/admin', 'HomeController@admin_dashboard')->name('admin.dashboard')->middleware(['auth', 'admin']);
 Route::prefix('/admin')->group(function () {
 
 	Route::get('/products/admin','ProductController@admin_products')->name('products.admin');
@@ -172,6 +172,11 @@ Route::prefix('/admin')->group(function () {
 	Route::post('/orders/postAdminComments', 'AdminOrderController@postAdminComments')->name('admin.orders.postAdminComments');
 	Route::post('/orders/getStates', 'AdminOrderController@ajaxGetStates')->name('ajax.orders.getStates');
 	Route::post('/orders/updateShippingInfo', 'AdminOrderController@updateShippingInfo')->name('ajax.orders.updateShippingInfo');
+
+
+
+	//CRICKET
+	Route::resource('teams','TeamsController');
 
 
 
