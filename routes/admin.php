@@ -177,6 +177,7 @@ Route::prefix('/admin')->group(function () {
 
 	//CRICKET
 	Route::resource('teams','TeamsController');
+	Route::resource('players','PlayerController');
 
 
 

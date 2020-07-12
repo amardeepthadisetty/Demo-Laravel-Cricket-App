@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 use App\Category;
 use App\SubCategory;
 use App\SubSubCategory;
-use App\Teams;
+use App\Players;
 use Session;
 use Schema;
 
 
-class TeamsController extends Controller
+class PlayerController extends Controller
 {
     /** 
      * Display a listing of the resource.
@@ -21,8 +21,8 @@ class TeamsController extends Controller
     public function index()
     {
         //echo 'teams';die;
-        $teams = Teams::orderBy('id','desc')->get();
-        return view('teams.index', compact('teams'));
+        $players = Players::orderBy('id','desc')->get();
+        return view('players.index', compact('players'));
     }
 
     /**
@@ -32,7 +32,7 @@ class TeamsController extends Controller
      */
     public function create()
     {
-        return view('Teams.create');
+        return view('players.create');
     }
 
     /**
@@ -44,34 +44,34 @@ class TeamsController extends Controller
     public function store(Request $request)
     {
 
-        
-        //$teams_data = new Teams;
-        //$teams_data->name = $request->team_name;
+         if($request->hasFile('image_uri')){
 
-         if($request->hasFile('logo_uri')){
-
-                $imageName = getOnlyImageName($request->logo_uri->getClientOriginalName()).'.'.$request->logo_uri->extension();
+                $imageName = getOnlyImageName($request->image_uri->getClientOriginalName()).'.'.$request->image_uri->extension();
                 
 
-                $imagefolderpath = 'uploads/teams/'.$imageName  ;
-                $request->logo_uri->move(public_path('uploads\teams'), $imageName);
+                $imagefolderpath = 'uploads/players/'.$imageName  ;
+                $request->image_uri->move(public_path('uploads\players'), $imageName);
                 //$product->thumbnail_img = $request->thumbnail_img->store('uploads/products/thumbnail');
 
                 //$teams_data->logo_uri = $imagefolderpath;
 
             }
 
-       //$teams_data->club_status = 1;
-
-       $teams_data = Teams::firstOrNew(
-            ['name' => $request->team_name],
-            ['logo_uri' => $imagefolderpath, 'club_state' => '1']
+            $players_data = Players::firstOrNew(
+            ['jersey_number' => $request->jersey_number],
+            [
+             'first_name' => $request->first_name,
+             'last_name' => $request->last_name,
+             'jersey_number' => $request->jersey_number,
+             'country' => $request->country,
+             'image_uri' => $imagefolderpath,
+            ]
         );
 
-        $teams_data->save();
+        $players_data->save();
         //echo "inside storeee";die;
-        Session::flash('success','Team  has been saved successfully');
-        return redirect()->route('teams.index');
+        Session::flash('success','Player has been added');
+        return redirect()->route('players.index');
     }
 
     /**
@@ -93,8 +93,8 @@ class TeamsController extends Controller
      */
     public function edit($id)
     {
-      $team_data = Teams::findOrFail(decrypt($id));
-      return view('Teams.edit', compact('team_data'));
+      $player_data = Players::findOrFail(decrypt($id));
+      return view('players.edit', compact('player_data'));
     }
 
     /**
@@ -106,7 +106,7 @@ class TeamsController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $teams_data = Teams::findOrFail($id);
+      $teams_data = Players::findOrFail($id);
       $teams_data->name = $request->team_name;
         if($request->hasFile('logo_uri')){
 
@@ -122,7 +122,7 @@ class TeamsController extends Controller
         }
         $teams_data->update();
         Session::flash('success','Teams has been updated successfully');
-        return redirect()->route('teams.index');
+        return redirect()->route('players.index');
         
     }
 
@@ -134,12 +134,12 @@ class TeamsController extends Controller
      */
     public function destroy($id)
     {
-      echo "destroy";die;
-        $coupon = Teams::findOrFail($id);
-        if(Teams::destroy($id)){
+      //echo "destroy";die;
+        $coupon = Players::findOrFail($id);
+        if(Players::destroy($id)){
             //flash('Coupon has been deleted successfully')->success();
             Session::flash('success','Location has been deleted successfully');
-            return redirect()->route('teams.index');
+            return redirect()->route('players.index');
         }
 
         //flash('Something went wrong')->error();

@@ -94,7 +94,14 @@
                                     <i class="fa fa-home"></i>
                                     <span class="menu-title">{{__('Teams')}}</span>
                                 </a>
-                            </li> 
+                            </li>
+
+                             <li class="active">
+                                <a class="nav-link" href="{{route('players.index')}}">
+                                    <i class="fa fa-home"></i>
+                                    <span class="menu-title">{{__('Players')}}</span>
+                                </a>
+                            </li>  
 
 
                            <!--  <li class="active">
