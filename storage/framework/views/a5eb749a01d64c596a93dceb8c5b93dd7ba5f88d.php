@@ -30,7 +30,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-lg-3 control-label" for="name"><?php echo e(__('Team A')); ?></label>
+                        <label class="col-lg-3 control-label" for="name"><?php echo e(__('Team B')); ?></label>
                         <div class="col-lg-5">
                             <select class="form-control" name="team_b">
                                 <option>Select Team</option>

@@ -110,6 +110,13 @@
                                 </a>
                             </li>  
 
+                             <li class="active">
+                                <a class="nav-link" href="{{route('points.index')}}">
+                                    <i class="fa fa-home"></i>
+                                    <span class="menu-title">{{__('Points')}}</span>
+                                </a>
+                            </li>
+
 
                            <!--  <li class="active">
                                 <a class="nav-link" href="{{route('products.admin')}}">

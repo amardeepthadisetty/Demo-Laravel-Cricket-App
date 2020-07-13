@@ -27,6 +27,25 @@ class TeamsController extends Controller
         return view('teams.index', compact('teams'));
     }
 
+    public function getTeamInfo($id)
+    {
+        //echo 'teams';die;
+        //$teams = Teams::orderBy('id','desc')->get();
+        $teams = Teams::where('id', $id )->firstorfail();
+        $team_mappings = TeamMappings::where('team_id', $id )->get();
+
+        $player_id = [];
+        foreach ($team_mappings as $t) {
+            $player_id[] = $t->player_id;
+        }
+        //$playerIDS = implode(",", $player_id);
+
+        $players = Players::whereIn('id',$player_id)->get();
+        //dd( $players );
+        //echo $playerIDS;die;
+        return view('teams.team_list', compact('teams','players'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

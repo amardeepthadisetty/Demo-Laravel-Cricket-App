@@ -78,6 +78,13 @@
                                 </a>
                             </li>  
 
+                             <li class="active">
+                                <a class="nav-link" href="<?php echo e(route('points.index')); ?>">
+                                    <i class="fa fa-home"></i>
+                                    <span class="menu-title"><?php echo e(__('Points')); ?></span>
+                                </a>
+                            </li>
+
 
                            <!--  <li class="active">
                                 <a class="nav-link" href="<?php echo e(route('products.admin')); ?>">

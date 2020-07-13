@@ -72,7 +72,8 @@
                             <?php  
                                 $statuses = array(
                                     '1' => 'pending',
-                                    '2' => 'draw'
+                                    '2' => 'draw',
+                                    '3' => 'complete'
                                 );
                             ?>
                             <div class="col-lg-5">

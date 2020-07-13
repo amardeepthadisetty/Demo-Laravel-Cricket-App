@@ -177,8 +177,10 @@ Route::prefix('/admin')->group(function () {
 
 	//CRICKET
 	Route::resource('teams','TeamsController');
+	Route::get('/teams/team-info/{teamid}', 'TeamsController@getTeamInfo')->name('teams.team_info.teamid');
 	Route::resource('players','PlayerController');
 	Route::resource('fixtures','FixtureController');
+	Route::resource('points','PointsController');
 
 
 
