@@ -34,7 +34,7 @@
                     <div class="form-group">
                         <label class="col-lg-3 control-label" for="name"><?php echo e(__('Image of player')); ?></label>
                         <div class="col-lg-5">
-                            <input class="form-control" required type="file" name="image_uri">
+                            <input class="form-control" type="file" name="image_uri">
                             <img src="<?php echo e(asset($player_data->image_uri)); ?>" width="300px" height="300px">
                         </div>
                     </div>
