@@ -80,12 +80,7 @@
 
 
                     <ul id="mainnav-menu" class="list-group">
-                          {{-- <li class="active">
-                                <a class="nav-link" href="{{route('products.create')}}">
-                                    <i class="fa fa-home"></i>
-                                    <span class="menu-title">{{__('Products')}}</span>
-                                </a>
-                            </li> --}}
+                          
 
                           
 
@@ -118,86 +113,7 @@
                             </li>
 
 
-                           <!--  <li class="active">
-                                <a class="nav-link" href="{{route('products.admin')}}">
-                                    <i class="fa fa-home"></i>
-                                    <span class="menu-title">{{__('Products')}}</span>
-                                </a>
-                            </li> 
-                            <li class="active">
-                                <a class="nav-link" href="{{route('templates.admin')}}">
-                                    <i class="fa fa-home"></i>
-                                    <span class="menu-title">{{__('Templates')}}</span>
-                                </a>
-                            </li>
-                            <li class="active">
-                                <a class="nav-link" href="{{route('templatecategories.admin')}}">
-                                    <i class="fa fa-home"></i>
-                                    <span class="menu-title">{{__('Categories')}}</span>
-                                </a>
-                            </li>  
-                            <li class="active">
-                                <a class="nav-link" href="{{route('filtergroups.admin')}}">
-                                    <i class="fa fa-home"></i>
-                                    <span class="menu-title">{{__('Filters')}}</span>
-                                </a>
-                            </li> 
-                            <li class="active">
-                                <a class="nav-link" href="{{route('coupon.index')}}">
-                                    <i class="fa fa-home"></i>
-                                    <span class="menu-title">{{__('Coupons')}}</span>
-                                </a>
-                            </li> 
-
-
-                            <li class="active">
-                                <a class="nav-link" href="{{route('local_pickup.index')}}">
-                                    <i class="fa fa-home"></i>
-                                    <span class="menu-title">{{__('Local Pick Up Addresses')}}</span>
-                                </a>
-                            </li> 
-
-                             <li class="active">
-                                <a class="nav-link" href="{{route('status_code.index')}}">
-                                    <i class="fa fa-home"></i>
-                                    <span class="menu-title">{{__('Status codes for orders')}}</span>
-                                </a>
-                            </li> 
-
-                             <li class="active">
-                                <a class="nav-link" href="{{route('payment_type.index')}}">
-                                    <i class="fa fa-home"></i>
-                                    <span class="menu-title">{{__('Payment types')}}</span>
-                                </a>
-                            </li> 
-
-                             <li class="active">
-                                <a class="nav-link" href="{{route('shipping_charge.index')}}">
-                                    <i class="fa fa-home"></i>
-                                    <span class="menu-title">{{__('Shipping Charges')}}</span>
-                                </a>
-                            </li>  
-
-                              <li class="active">
-                                <a class="nav-link" href="{{route('shippingmethod.admin')}}">
-                                    <i class="fa fa-home"></i>
-                                    <span class="menu-title">{{__('Shipping Method')}}</span>
-                                </a>
-                            </li> 
-
-                             <li class="active">
-                                <a class="nav-link" href="{{route('shippingsetting.index')}}">
-                                    <i class="fa fa-home"></i>
-                                    <span class="menu-title">{{__('Global Shipping Settings')}}</span>
-                                </a>
-                            </li>  
-
-                            <li class="active">
-                                <a class="nav-link" href="{{route('orders.index')}}">
-                                    <i class="fa fa-home"></i>
-                                    <span class="menu-title">{{__('Orders')}}</span>
-                                </a>
-                            </li>  -->
+                          
                        
                     </ul>
                 </div>
